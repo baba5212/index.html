@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carte Leaflet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+</head>
+<body>
+    <div id="map" style="width: 600px; height: 400px;"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script>
+        // Initialisation de la carte Leaflet
+        var map = L.map('map').setView([11.7232138,-10.183333], 13);
+
+        // Ajout d'une couche de tuiles OpenStreetMap à la carte
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Ajout d'un marqueur aux coordonnées spécifiées
+        var marker = L.marker([11.7232138,-10.183333]).addTo(map);
+
+        // Ajout d'un popup au marqueur
+        marker.bindPopup('Les coordonnées sont lat: 11.7232138, lng:-10.183333').openPopup();
+    </script>
+</body>
+</html>
